@@ -1,3 +1,9 @@
+/*
+ * This code is similar to OpenWeatherJsonUtils in Sunshine exercise given for Udacity Android Nanodegree Course
+ * Github link is
+ *  https://github.com/udacity/ud851-Sunshine/blob/student/S02.03-Solution-Polish/app/src/main/java/com/example/android/sunshine/utilities/OpenWeatherJsonUtils.java
+ */
+
 package com.udacity.sandwichclub.utils;
 
 import com.udacity.sandwichclub.model.Sandwich;
