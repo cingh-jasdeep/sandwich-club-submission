@@ -20,7 +20,7 @@ public class JsonUtils {
      * into a sandwich object
      * {@link com.udacity.sandwichclub.model.Sandwich}
      *
-     * @param json JSON from string.xml
+     * @param json JSON for one sandwitch item from {@link com.udacity.sandwichclub.R.array#sandwich_details}
      *
      * @return Sandwich object with the parsed information
      *

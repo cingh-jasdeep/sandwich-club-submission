@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         /*
          * Using findViewById, to get reference to UI widgets declared above
          */
-        mOriginLabelTextView= findViewById(R.id.origin_label_tv);
+        mOriginLabelTextView = findViewById(R.id.origin_label_tv);
         mDescriptionLabelTextView = findViewById(R.id.description_label_tv);
         mIngredientsLabelTextView = findViewById(R.id.ingredients_label_tv);
         mAlsoKnownLabelTextView = findViewById(R.id.also_known_label_tv);
@@ -109,7 +109,7 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI(Sandwich s) {
 
         String placeOfOrigin = s.getPlaceOfOrigin();
-        if (placeOfOrigin!=null && !placeOfOrigin.equals("")) {
+        if (placeOfOrigin != null && !placeOfOrigin.equals("")) {
             mOriginTextView.append((placeOfOrigin) + "\n");
 
             mOriginLabelTextView.setVisibility(View.VISIBLE);
@@ -117,7 +117,7 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         String description = s.getDescription();
-        if (description!=null && !description.equals("")) {
+        if (description != null && !description.equals("")) {
             mDescriptionTextView.append((description) + "\n");
 
             mDescriptionLabelTextView.setVisibility(View.VISIBLE);
@@ -127,7 +127,7 @@ public class DetailActivity extends AppCompatActivity {
 
         List<String> ingredientsList = s.getIngredients();
 
-        if(ingredientsList!=null) {
+        if(ingredientsList != null) {
             for (String ingredient : ingredientsList) {
                 if(!ingredient.equals("")) { mIngredientsTextView.append((ingredient) + "\n"); }
             }
