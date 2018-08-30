@@ -110,7 +110,7 @@ public class DetailActivity extends AppCompatActivity {
 
         String placeOfOrigin = s.getPlaceOfOrigin();
         if (placeOfOrigin!=null && !placeOfOrigin.equals("")) {
-            mOriginTextView.setText(placeOfOrigin);
+            mOriginTextView.append((placeOfOrigin) + "\n");
 
             mOriginLabelTextView.setVisibility(View.VISIBLE);
             mOriginTextView.setVisibility(View.VISIBLE);
@@ -118,7 +118,7 @@ public class DetailActivity extends AppCompatActivity {
 
         String description = s.getDescription();
         if (description!=null && !description.equals("")) {
-            mDescriptionTextView.setText(description);
+            mDescriptionTextView.append((description) + "\n");
 
             mDescriptionLabelTextView.setVisibility(View.VISIBLE);
             mDescriptionTextView.setVisibility(View.VISIBLE);
