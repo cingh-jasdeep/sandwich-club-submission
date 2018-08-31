@@ -26,7 +26,6 @@
 
             <TextView
                 android:id="@+id/origin_label_tv"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
@@ -34,7 +33,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/origin_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +41,6 @@
 
             <TextView
                 android:id="@+id/also_known_label_tv"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_also_known_as_label"
@@ -51,7 +48,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/also_known_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +55,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/ingredients_label_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +63,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/ingredients_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +70,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/description_label_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,7 +78,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/description_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

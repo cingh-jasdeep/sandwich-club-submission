@@ -56,35 +56,38 @@ public class JsonUtils {
         /* all ingredients are string elements of "ingredients" array */
         final String SANDWICH_INGREDIENTS = "ingredients";
 
+        /* fallback string from Json parsing, empty for now */
+        final String FALLBACK_STRING = "";
+
 
 
         JSONObject sandwichJson = new JSONObject(json);
 
-        JSONObject nameObject = sandwichJson.getJSONObject(SANDWICH_NAME);
+        JSONObject nameObject = sandwichJson.optJSONObject(SANDWICH_NAME);
 
-        String mainName = nameObject.getString(SANDWICH_MAIN_NAME);
+        String mainName = nameObject.optString(SANDWICH_MAIN_NAME, FALLBACK_STRING);
 
-        JSONArray alsoKnownAsJsonArray = nameObject.getJSONArray(SANDWICH_ALSO_KNOWN_AS);
+        JSONArray alsoKnownAsJsonArray = nameObject.optJSONArray(SANDWICH_ALSO_KNOWN_AS);
 
         /* String Array list to store "Also known as" names */
         List<String> alsoKnownAsStringList = new ArrayList<>();
 
         for (int i=0;i < alsoKnownAsJsonArray.length() ;i++) {
-            alsoKnownAsStringList.add(alsoKnownAsJsonArray.getString(i));
+            alsoKnownAsStringList.add(alsoKnownAsJsonArray.optString(i, FALLBACK_STRING));
         }
 
-        String placeOfOriginString = sandwichJson.getString(SANDWICH_PLACE_OF_ORIGIN);
-        String descriptionString = sandwichJson.getString(SANDWICH_DESCRIPTION);
-        String imageUrlString = sandwichJson.getString(SANDWICH_IMAGE);
+        String placeOfOriginString = sandwichJson.optString(SANDWICH_PLACE_OF_ORIGIN, FALLBACK_STRING);
+        String descriptionString = sandwichJson.optString(SANDWICH_DESCRIPTION, FALLBACK_STRING);
+        String imageUrlString = sandwichJson.optString(SANDWICH_IMAGE, FALLBACK_STRING);
 
 
-        JSONArray ingredientsJsonArray = sandwichJson.getJSONArray(SANDWICH_INGREDIENTS);
+        JSONArray ingredientsJsonArray = sandwichJson.optJSONArray(SANDWICH_INGREDIENTS);
 
         /* String Array list to store ingredients */
         List<String> ingredientsStringList = new ArrayList<>();
 
         for (int i=0;i < ingredientsJsonArray.length() ;i++) {
-            ingredientsStringList.add(ingredientsJsonArray.getString(i));
+            ingredientsStringList.add(ingredientsJsonArray.optString(i, FALLBACK_STRING));
         }
 
 

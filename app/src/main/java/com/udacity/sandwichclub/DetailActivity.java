@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,12 +29,6 @@ public class DetailActivity extends AppCompatActivity {
     /*
      * Label variables are kept to display only when data is not null
      */
-
-    public TextView mOriginLabelTextView;
-    public TextView mDescriptionLabelTextView;
-    public TextView mIngredientsLabelTextView;
-    public TextView mAlsoKnownLabelTextView;
-
     public TextView mOriginTextView;
     public TextView mDescriptionTextView;
     public TextView mIngredientsTextView;
@@ -50,11 +45,6 @@ public class DetailActivity extends AppCompatActivity {
         /*
          * Using findViewById, to get reference to UI widgets declared above
          */
-        mOriginLabelTextView = findViewById(R.id.origin_label_tv);
-        mDescriptionLabelTextView = findViewById(R.id.description_label_tv);
-        mIngredientsLabelTextView = findViewById(R.id.ingredients_label_tv);
-        mAlsoKnownLabelTextView = findViewById(R.id.also_known_label_tv);
-
         mOriginTextView = findViewById(R.id.origin_tv);
         mDescriptionTextView = findViewById(R.id.description_tv);
         mIngredientsTextView = findViewById(R.id.ingredients_tv);
@@ -96,6 +86,8 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.mipmap.ic_launcher_round)
+                .error(R.mipmap.ic_launcher_round)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
@@ -111,47 +103,30 @@ public class DetailActivity extends AppCompatActivity {
         String placeOfOrigin = s.getPlaceOfOrigin();
         if (placeOfOrigin != null && !placeOfOrigin.equals("")) {
             mOriginTextView.append((placeOfOrigin) + "\n");
-
-            mOriginLabelTextView.setVisibility(View.VISIBLE);
-            mOriginTextView.setVisibility(View.VISIBLE);
+        } else {
+            mOriginTextView.append(getString(R.string.data_error) + "\n");
         }
 
         String description = s.getDescription();
         if (description != null && !description.equals("")) {
             mDescriptionTextView.append((description) + "\n");
-
-            mDescriptionLabelTextView.setVisibility(View.VISIBLE);
-            mDescriptionTextView.setVisibility(View.VISIBLE);
-
+        } else {
+            mDescriptionTextView.append(getString(R.string.data_error) + "\n");
         }
 
-        List<String> ingredientsList = s.getIngredients();
-
-        if(ingredientsList != null) {
-            for (String ingredient : ingredientsList) {
-                if(!ingredient.equals("")) { mIngredientsTextView.append((ingredient) + "\n"); }
-            }
-
-            /* Make sure there are items to show*/
-            if(!(mIngredientsTextView.getText().toString()).equals("")) {
-                mIngredientsLabelTextView.setVisibility(View.VISIBLE);
-                mIngredientsTextView.setVisibility(View.VISIBLE);
-            }
+        String ingredientString = TextUtils.join("\n", s.getIngredients());
+        if (ingredientString != null && !ingredientString.equals("")) {
+            mIngredientsTextView.append(ingredientString + "\n");
+        } else {
+            mIngredientsTextView.append(getString(R.string.data_error) + "\n");
         }
 
-        List<String> alsoKnownAsList = s.getAlsoKnownAs();
-
-        if(alsoKnownAsList!=null) {
-            for (String alsoKnownAs : alsoKnownAsList) {
-                if(!alsoKnownAs.equals("")) { mAlsoKnownTextView.append((alsoKnownAs) + "\n"); }
-            }
-
-            /* Make sure there are items to show*/
-            if(!(mAlsoKnownTextView.getText().toString()).equals("")) {
-                mAlsoKnownLabelTextView.setVisibility(View.VISIBLE);
-                mAlsoKnownTextView.setVisibility(View.VISIBLE);
-            }
-
+        String alsoKnownAsString = TextUtils.join("\n", s.getAlsoKnownAs());
+        if (alsoKnownAsString != null && !alsoKnownAsString.equals("")) {
+            mAlsoKnownTextView.append(alsoKnownAsString + "\n");
+        } else {
+            mAlsoKnownTextView.append(getString(R.string.data_error) + "\n");
         }
+
     }
 }
