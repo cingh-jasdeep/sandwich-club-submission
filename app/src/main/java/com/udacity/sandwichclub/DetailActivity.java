@@ -25,10 +25,6 @@ public class DetailActivity extends AppCompatActivity {
     /*
      * Adding local variables for Detail Activity UI
      */
-
-    /*
-     * Label variables are kept to display only when data is not null
-     */
     public TextView mOriginTextView;
     public TextView mDescriptionTextView;
     public TextView mIngredientsTextView;
