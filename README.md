@@ -27,3 +27,7 @@ display in a sensible way.
 
 - I implemented the JSON parsing in [`JsonUtils`](/app/src/main/java/com/udacity/sandwichclub/utils/JsonUtils.java) so it
 produces a Sandwich Object that can be used to populate the UI that you designed.
+
+## How to run?
+
+install `android studio` and import project using `github tool`
